@@ -163,7 +163,7 @@ export default function SalesRacePage() {
 
                       return (
                         <tr
-                          key={s.name}
+                          key={`${s.name}-${i}`}
                           className={`${rowClass} ${i < 3 ? 'font-bold' : ''}`}
                         >
                           <td className="py-2 px-4">{i + 1}</td>
