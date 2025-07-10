@@ -9,7 +9,7 @@ interface Salesman {
   sales: number;
 }
 
-// ✅ XLSX link
+
 const XLSX_URL =
   'https://docs.google.com/spreadsheets/d/e/2PACX-1vQj1VZbVdNX3fSZGgT3j36IUWjyXgWLgdJxH5YqJB73S9ZGWxO7C07w_rY4a6_mytRfL0eMXz0SqCx_/pub?output=xlsx';
 
@@ -87,21 +87,16 @@ export default function SalesRacePage() {
 
   return (
     <>
-      <div className="w-full bg-black py-6 flex items-center justify-center mb-8 shadow-lg">
-        <div className="flex items-center gap-4">
-          <Image
-            src="/wurthlogo.png"
-            alt="Wurth Logo"
-            width={56}
-            height={56}
-            className="object-contain bg-white rounded p-1"
-          />
-          <span className="text-4xl font-extrabold text-white tracking-wide">WURTH</span>
-          <span className="ml-4 text-4xl font-extrabold text-red-600 tracking-widest">
-            Baer Supply Sales Race
-          </span>
-        </div>
-      </div>
+    <div className="w-full bg-black py-0 flex items-center justify-center mb-8">
+      <Image
+        src="/sales.jpg"
+        alt="Sales Race Banner"
+        width={1000}
+        height={200}
+        className="object-cover w-full h-80 rounded"
+        priority
+      />
+    </div>
 
       <div className="max-w-3xl mx-auto px-4 py-8">
         {loading ? (
