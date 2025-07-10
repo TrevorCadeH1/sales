@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import * as XLSX from 'xlsx';
+import Image from 'next/image';
 
 interface Salesman {
   name: string;
@@ -27,7 +28,7 @@ export default function SalesRacePage() {
         const arrayBuffer = await blob.arrayBuffer();
         const workbook = XLSX.read(arrayBuffer, { type: 'array' });
         const sheet = workbook.Sheets[workbook.SheetNames[0]];
-        const jsonData = XLSX.utils.sheet_to_json<Record<string, any>>(sheet, {
+        const jsonData = XLSX.utils.sheet_to_json<Record<string, unknown>>(sheet, {
           header: 1,
           defval: '',
         });
@@ -61,9 +62,10 @@ export default function SalesRacePage() {
           setSalesmen(parsed);
           setLoading(false);
         }
-      } catch (err: any) {
+      } catch (err: unknown) {
         if (isMounted) {
-          setError('Failed to fetch Excel file: ' + err.message);
+          const errorMessage = err instanceof Error ? err.message : 'Unknown error occurred';
+          setError('Failed to fetch Excel file: ' + errorMessage);
           setLoading(false);
         }
       }
@@ -87,10 +89,12 @@ export default function SalesRacePage() {
     <>
       <div className="w-full bg-black py-6 flex items-center justify-center mb-8 shadow-lg">
         <div className="flex items-center gap-4">
-          <img
+          <Image
             src="/wurthlogo.png"
             alt="Wurth Logo"
-            className="h-14 w-14 object-contain bg-white rounded p-1"
+            width={56}
+            height={56}
+            className="object-contain bg-white rounded p-1"
           />
           <span className="text-4xl font-extrabold text-white tracking-wide">WURTH</span>
           <span className="ml-4 text-4xl font-extrabold text-red-600 tracking-widest">
