@@ -91,7 +91,7 @@ export default function SalesRacePage() {
       <Image
         src="/sales.jpg"
         alt="Sales Race Banner"
-        width={950}
+        width={900}
         height={200}
         className="object-cover w-full h-65"
         priority
