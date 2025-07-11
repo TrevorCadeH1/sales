@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import * as XLSX from 'xlsx';
 import Image from 'next/image';
-
+import Link from 'next/link';
 
 interface Salesman {
   name: string;
@@ -231,11 +231,30 @@ export default function SalesRacePage() {
                 );
               })}
             </div>
+          </>
+        )}
+      </div>
 
-            {/* Leaderboard */}
-            <div className="bg-white rounded-lg shadow p-6">
+      {/* Full Width Three Column Layout */}
+      {!loading && (
+        <div className="flex w-full items-start">
+          {/* Left side - Details */}
+          <div className="w-100 bg-gray-100 h-60 p-4 ml-4">
+            <h3 className="text-xl font-bold mb-2 text-gray-800">Details:</h3>
+            <ul className="text-md text-gray-700 space-y-1">
+              <li>• The rep with the most growth at the end of the week wins!</li>
+              <li>• If you do not hit plan for that vendor for the week, you will not be in the running</li>
+              <li>• Your baseline is your YTD average weekly sales</li>
+              <li>• The average margin must be min. 18% on all sales to be in the running</li>
+            </ul>
+          </div>
+
+          {/* Center - Leaderboard */}
+          <div className="flex-1 flex justify-center">
+            <div className="max-w-3xl w-full bg-white rounded-lg shadow-lg shadow-black p-6">
               <h2 className="text-3xl font-extrabold mb-4 text-center">Leaderboard</h2>
               <h2 className="text-xl font-lightbold mb-4 text-center">Updated as of end of day Monday</h2>
+              
               <div className="overflow-x-auto">
                 <table className="min-w-full text-center">
                   <thead>
@@ -289,9 +308,49 @@ export default function SalesRacePage() {
                 </table>
               </div>
             </div>
-          </>
-        )}
-      </div>
+          </div>
+
+          {/* Right side - Prizes */}
+          <div className="w-100 bg-gray-100 h-60 p-4 mr-4">
+            <h3 className="text-xl font-bold mb-2 text-gray-800">Prizes:</h3>
+            <ul className="text-md text-gray-700 mt-4 space-y-4">
+                <li>
+                <strong>1st Place:</strong>{' '}
+                <a
+                  href="https://www.tagheuer.com/us/en/timepieces/collections/tag-heuer-formula-1/43-mm-quartz/CAZ1011.BA0842.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:cursor-pointer hover:underline hover:text-red-600"
+                >
+                  Tag Heuer Formula 1 Chronograph or $2,450
+                </a>
+                </li>
+                <li>
+                <strong>2nd Place:</strong>{' '}
+                <a
+                  href="https://nomos-glashuette.com/en/club/club-701-1?gad_source=1&gad_campaignid=184967029&gbraid=0AAAAADs72kutkBp9CAIc81FNZfc5M78Fh&gclid=CjwKCAjw7MLDBhAuEiwAIeXGITuhsWhc1LOJCsPwlEV1FOwFi_aSERg6z5C8MNeDF4dL70tIyNTcRhoCg4YQAvD_BwE"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:cursor-pointer hover:underline hover:text-red-600"
+                >
+                  Nomos Reference 701.1 or $1,660
+                </a>
+                </li>
+              <li>
+                <strong>3rd Place:</strong>{' '}
+                <a
+                  href="https://www.tissotwatches.com/en-us/T1514221104100.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:cursor-pointer hover:underline hover:text-red-600"
+                >
+                  Tissot PRC 100 Solar Quartz or $525
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      )}
     </>
   );
 }
