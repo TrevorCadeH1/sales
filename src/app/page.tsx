@@ -347,7 +347,7 @@ export default function SalesRacePage() {
         {/* Mobile: Stacked Layout */}
         <div className="lg:hidden max-w-3xl mx-auto px-4">
           {/* Mobile Details */}
-          <div className="bg-white shadow-lg rounded-lg p-4 mb-4">
+          <div className="bg-white shadow-lg shadow-black rounded-lg p-4 mb-4">
             <h3 className="text-lg font-bold mb-2 text-gray-800">Details:</h3>
             <ul className="text-sm text-gray-700 space-y-1">
               <li>• The rep with the most growth at the end of the week wins!</li>
@@ -358,7 +358,7 @@ export default function SalesRacePage() {
           </div>
 
           {/* Mobile Prizes */}
-          <div className="bg-white shadow-lg rounded-lg p-4 mb-6">
+          <div className="bg-white shadow-lg shadow-black rounded-lg p-4 mb-6">
             <h3 className="text-lg font-bold mb-2 text-gray-800">Prizes:</h3>
             <ul className="text-sm text-gray-700 space-y-2">
               <li>
