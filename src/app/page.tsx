@@ -72,7 +72,7 @@ export default function SalesRacePage() {
     };
 
     fetchAndParseXLSX();
-    const id = setInterval(fetchAndParseXLSX, 10000); // refresh every 10s
+    const id = setInterval(fetchAndParseXLSX, 10000);
     return () => {
       isMounted = false;
       clearInterval(id);
@@ -91,10 +91,11 @@ export default function SalesRacePage() {
       <Image
         src="/sales.jpg"
         alt="Sales Race Banner"
-        width={900}
-        height={200}
+        width={1800}
+        height={400}
         className="object-cover w-full h-65"
         priority
+        quality={95}
       />
     </div>
 
