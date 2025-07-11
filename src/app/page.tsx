@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import * as XLSX from 'xlsx';
 import Image from 'next/image';
+import { GiPodium } from "react-icons/gi";
+
 
 interface Salesman {
   name: string;
@@ -33,7 +35,6 @@ export default function SalesRacePage() {
           defval: '',
         });
 
-        // Skip header row
         const dataRows = jsonData.slice(1);
 
         const parsed: Salesman[] = dataRows
@@ -91,9 +92,9 @@ export default function SalesRacePage() {
       <Image
         src="/sales.jpg"
         alt="Sales Race Banner"
-        width={1000}
+        width={800}
         height={200}
-        className="object-cover w-full h-80 rounded"
+        className="object-cover w-full h-60"
         priority
       />
     </div>
@@ -106,9 +107,8 @@ export default function SalesRacePage() {
             {error && (
               <div className="text-center text-red-600 font-bold mb-4">{error}</div>
             )}
-
             {/* Podium */}
-            <div className="flex justify-center items-end mb-10 gap-6">
+            <div className="flex justify-center items-end mb-10">
               {[1, 0, 2].map((pos) => {
                 const topSales = salesmen[0]?.sales || 1;
                 const sales = salesmen[pos]?.sales || 0;
@@ -126,11 +126,21 @@ export default function SalesRacePage() {
                     <div className="text-sm text-black">
                       ${salesmen[pos]?.sales.toLocaleString() || '-'}
                     </div>
-                    <div
-                      className="mt-2 w-10 bg-gray-200 rounded-t-md"
-                      style={{ height: `${height}px` }}
-                    />
+                    <div className="relative flex flex-col items-center mt-2 w-28">
+                      <div
+                        className="bg-blue-blend w-full flex items-center justify-center"
+                        style={{
+                          height: pos === 0 ? '150px' : pos === 1 ? '105px' : '75px',
+                        }}
+                      >
+                        <span className="text-white font-bold text-lg absolute inset-0 flex items-center justify-center">
+                          {pos === 0 ? '1st' : pos === 1 ? '2nd' : '3rd'}
+                        </span>
+                      </div>
+                    </div>
                   </div>
+              
+                  
                 );
               })}
             </div>
@@ -152,13 +162,13 @@ export default function SalesRacePage() {
                       let rowClass = '';
                       if (i === 0)
                         rowClass =
-                          'bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900';
+                          'bg-yellow-100 border-l-4 border-yellow-500 text-black';
                       else if (i === 1)
                         rowClass =
-                          'bg-gray-100 border-l-4 border-gray-400 text-gray-800';
+                          'bg-gray-100 border-l-4 border-gray-400 text-black';
                       else if (i === 2)
                         rowClass =
-                          'bg-[#f8e6d2] border-l-4 border-[#b87333] text-[#7c4a03]';
+                          'bg-[#f8e6d2] border-l-4 border-[#b87333] text-black';
 
                       return (
                         <tr
