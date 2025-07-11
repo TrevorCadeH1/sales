@@ -68,6 +68,7 @@ const SALESMAN_IMAGE_MAP: Record<string, string> = {
   'Herbst': 'Herbst-Charlie-200x200.png',
   'Rubino': 'rubino-chuck-200x200-01.png',
   'White': 'white-vernon-200x200.png',
+  'Naxi': 'naxi-oscar-200x200.png',
 };
 
 
@@ -213,12 +214,14 @@ export default function SalesRacePage() {
                       ${salesman?.sales.toLocaleString() || '-'}
                     </div>
                     <div className="relative flex flex-col items-center mt-2 w-28">
-                      <div
-                        className="bg-black border-white/80 border w-full flex items-center justify-center"
+                        <div
+                        className={`border-white/80 border w-full flex items-center justify-center ${
+                          pos === 0 ? 'bg-red-600' : 'bg-black'
+                        }`}
                         style={{
                           height: pos === 0 ? '150px' : pos === 1 ? '105px' : '75px',
                         }}
-                      >
+                        >
                         <span className="text-white font-bold text-lg absolute inset-0 flex items-center justify-center">
                           {pos === 0 ? '1st' : pos === 1 ? '2nd' : '3rd'}
                         </span>
