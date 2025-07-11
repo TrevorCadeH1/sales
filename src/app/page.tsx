@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react';
 import * as XLSX from 'xlsx';
 import Image from 'next/image';
-import Link from 'next/link';
 
 interface Salesman {
   name: string;
