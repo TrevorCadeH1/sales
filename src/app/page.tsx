@@ -164,12 +164,6 @@ export default function SalesRacePage() {
     };
   }, []);
 
-  const trophyColors = [
-    'bg-yellow-400 border-yellow-500',
-    'bg-gray-300 border-gray-400',
-    'bg-[#cd7f32] border-[#b87333]',
-  ];
-
   return (
     <>
     <div className="w-full bg-black py-0 flex items-center justify-center mb-8">
