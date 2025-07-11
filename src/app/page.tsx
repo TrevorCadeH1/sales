@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react';
 import * as XLSX from 'xlsx';
 import Image from 'next/image';
-import { GiPodium } from "react-icons/gi";
 
 
 interface Salesman {
@@ -110,9 +109,6 @@ export default function SalesRacePage() {
             {/* Podium */}
             <div className="flex justify-center items-end mb-10">
               {[1, 0, 2].map((pos) => {
-                const topSales = salesmen[0]?.sales || 1;
-                const sales = salesmen[pos]?.sales || 0;
-                const height = Math.round(40 + ((sales / topSales) * 60)); // 40-100px bar height
                 return (
                   <div key={pos} className="flex flex-col items-center">
                     <div
