@@ -207,7 +207,7 @@ export default function SalesRacePage() {
                     </div>
                     <div className="relative flex flex-col items-center mt-2 w-28">
                         <div
-                        className={`border-white/80 border w-full flex items-center justify-center ${
+                        className={`border-white border w-full flex items-center justify-center ${
                           pos === 0 ? 'bg-red-600' : 'bg-black'
                         }`}
                         style={{
@@ -232,7 +232,7 @@ export default function SalesRacePage() {
         <>
           <div className="hidden lg:flex w-full items-start">
             {/* Left side - Details */}
-            <div className="w-100 bg-white shadow-lg shadow-black rounded-lg h-60 p-4 ml-4">
+            <div className="w-100 bg-white shadow-lg shadow-black rounded-lg h-60 p-4 ml-18">
               <h3 className="text-xl font-bold mb-2 text-gray-800">Details:</h3>
               <ul className="text-md text-gray-700 space-y-1">
                 <li>• The rep with the most growth at the end of the week wins!</li>
@@ -304,7 +304,7 @@ export default function SalesRacePage() {
           </div>
 
           {/* Right side - Prizes */}
-            <div className="w-100 bg-white shadow-lg rounded-lg shadow-black h-60 p-4 mr-4">
+            <div className="w-100 bg-white shadow-lg rounded-lg shadow-black h-60 p-4 mr-18">
             <h3 className="text-xl font-bold mb-2 text-gray-800">Prizes:</h3>
             <ul className="text-md text-gray-700 mt-4 space-y-4">
                 <li>
