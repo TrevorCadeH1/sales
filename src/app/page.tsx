@@ -11,8 +11,7 @@ interface Salesman {
 }
 
 
-const XLSX_URL =
-  'https://docs.google.com/spreadsheets/d/e/2PACX-1vQj1VZbVdNX3fSZGgT3j36IUWjyXgWLgdJxH5YqJB73S9ZGWxO7C07w_rY4a6_mytRfL0eMXz0SqCx_/pub?output=xlsx';
+const XLSX_URL = '/WBSC Grass Weekly avg by rep.xlsx';
 
 export default function SalesRacePage() {
   const [salesmen, setSalesmen] = useState<Salesman[]>([]);
@@ -34,18 +33,18 @@ export default function SalesRacePage() {
           defval: '',
         });
 
-        const dataRows = jsonData.slice(1);
+        const dataRows = jsonData.slice(2);
 
         const parsed: Salesman[] = dataRows
           .map((row) => {
             const repField = (row[0] || '').toString().trim();
-            const parts = repField.split(/\s+/);
-            const name = parts.slice(1).join(' ') || repField;
+            const name = repField;
 
             const salesRaw = (row[1] || '').toString().replace(/[$,]/g, '').trim();
-            const sales = parseFloat(salesRaw);
+            const sales = Math.round(parseFloat(salesRaw));
 
-            if (!name || isNaN(sales)) return null;
+            // Skip empty rows or invalid data
+            if (!name || isNaN(sales) || sales === 0) return null;
 
             return { name, sales };
           })
@@ -145,6 +144,7 @@ export default function SalesRacePage() {
             {/* Leaderboard */}
             <div className="bg-white rounded-lg shadow p-6">
               <h2 className="text-3xl font-extrabold mb-4 text-center">Leaderboard</h2>
+              <h2 className="text-xl font-lightbold mb-4 text-center">Updated as of end of day Monday</h2>
               <div className="overflow-x-auto">
                 <table className="min-w-full text-center">
                   <thead>
