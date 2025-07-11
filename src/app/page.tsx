@@ -208,7 +208,7 @@ export default function SalesRacePage() {
                     <div className="relative flex flex-col items-center mt-2 w-28">
                         <div
                         className={`border-white border w-full flex items-center justify-center ${
-                          pos === 0 ? 'bg-red-600' : 'bg-black'
+                          pos === 0 ? 'bg-red-600' : pos === 1 ? 'bg-neutral-500' : 'bg-black'
                         }`}
                         style={{
                           height: pos === 0 ? '150px' : pos === 1 ? '105px' : '75px',
@@ -261,15 +261,15 @@ export default function SalesRacePage() {
                   <tbody>
                     {salesmen.map((s, i) => {
                       let rowClass = '';
-                      if (i === 0)
+                        if (i === 0)
                         rowClass =
-                          'bg-yellow-100 border-l-4 border-yellow-500 text-black';
-                      else if (i === 1)
+                          'bg-red-600 text-white';
+                        else if (i === 1)
                         rowClass =
-                          'bg-gray-100 border-l-4 border-gray-400 text-black';
-                      else if (i === 2)
+                          'bg-neutral-500 text-white';
+                        else if (i === 2)
                         rowClass =
-                          'bg-[#f8e6d2] border-l-4 border-[#b87333] text-black';
+                          'bg-black text-white';
 
                       return (
                         <tr
@@ -413,17 +413,17 @@ export default function SalesRacePage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {salesmen.map((s, i) => {
+                    {salesmen.map((s, i) => {
                     let rowClass = '';
                     if (i === 0)
                       rowClass =
-                        'bg-yellow-100 border-l-4 border-yellow-500 text-black';
+                      'bg-red-600 text-white';
                     else if (i === 1)
                       rowClass =
-                        'bg-gray-100 border-l-4 border-gray-400 text-black';
+                      'bg-neutral-500 text-white';
                     else if (i === 2)
                       rowClass =
-                        'bg-[#f8e6d2] border-l-4 border-[#b87333] text-black';
+                      'bg-black text-white';
 
                     return (
                       <tr
